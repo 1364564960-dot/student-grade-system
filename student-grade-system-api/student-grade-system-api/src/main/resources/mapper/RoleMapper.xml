@@ -1,0 +1,18 @@
+<!-- ... existing code ... -->
+<select id="findAll" resultType="com.gradproject.sgs.entity.Role">
+    SELECT
+    id, role_name, description
+    FROM
+    t_role
+</select>
+
+<select id="findById" resultType="com.gradproject.sgs.entity.Role">
+SELECT
+id, role_name, description
+FROM
+t_role
+WHERE
+id = #{id}
+</select>
+
+        </mapper>
