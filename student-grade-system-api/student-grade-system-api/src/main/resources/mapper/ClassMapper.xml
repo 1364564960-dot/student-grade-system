@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gradproject.sgs.mapper.ClassMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_class (class_name) VALUES (#{className})
+    </insert>
+
+    <select id="findById" resultType="com.gradproject.sgs.entity.Class">
+        SELECT * FROM t_class WHERE id = #{id}
+    </select>
+
+    <select id="findAll" resultType="com.gradproject.sgs.entity.Class">
+        SELECT * FROM t_class ORDER BY id
+    </select>
+
+    <update id="update">
+        UPDATE t_class SET class_name = #{className} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM t_class WHERE id = #{id}
+    </delete>
+
+</mapper>
