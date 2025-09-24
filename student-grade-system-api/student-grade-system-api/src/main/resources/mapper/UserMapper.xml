@@ -9,4 +9,13 @@
         SELECT * FROM t_user WHERE username = #{username}
     </select>
 
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_user (username, password, role_id)
+        VALUES (#{username}, #{password}, #{roleId})
+    </insert>
+
+    <delete id="deleteById">
+        DELETE FROM t_user WHERE id = #{id}
+    </delete>
+
 </mapper>

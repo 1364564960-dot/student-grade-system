@@ -1,16 +1,15 @@
-// ... existing code ...
+package com.gradproject.sgs.mapper;
+
+// 【关键修正】添加了对 Role 和 List 的 import
+import com.gradproject.sgs.entity.Role;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 @Mapper
 public interface RoleMapper {
 
-    /**
-     // ... existing code ...
-     * @return 角色列表
-     */
     List<Role> findAll();
 
     Role findById(@Param("id") Integer id);

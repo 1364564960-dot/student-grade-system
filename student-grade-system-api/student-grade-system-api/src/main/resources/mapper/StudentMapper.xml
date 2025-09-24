@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gradproject.sgs.mapper.StudentMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_student_info (user_id, student_number, name, gender, class_id)
+        VALUES (#{userId}, #{studentNumber}, #{name}, #{gender}, #{classId})
+    </insert>
+
+    <select id="findAll" resultType="com.gradproject.sgs.entity.StudentInfo">
+        SELECT * FROM t_student_info ORDER BY id
+    </select>
+
+    <select id="findById" resultType="com.gradproject.sgs.entity.StudentInfo">
+        SELECT * FROM t_student_info WHERE id = #{id}
+    </select>
+
+    <select id="findByUserId" resultType="com.gradproject.sgs.entity.StudentInfo">
+        SELECT * FROM t_student_info WHERE user_id = #{userId}
+    </select>
+
+    <update id="update">
+        UPDATE t_student_info SET
+                                  student_number = #{studentNumber},
+                                  name = #{name},
+                                  gender = #{gender},
+                                  class_id = #{classId}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM t_student_info WHERE id = #{id}
+    </delete>
+
+</mapper>
